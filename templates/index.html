@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenVoice Demo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-1/2">
+    <h1 class="text-2xl font-bold mb-4 text-center">OpenVoice - Flask Demo</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-4">
+      <textarea name="text" class="w-full p-2 border rounded-md" rows="4"
+        placeholder="Type text here..."></textarea>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Generate</button>
+    </form>
+
+    {% if audio_file %}
+    <div class="mt-6 text-center">
+      <h2 class="text-lg font-semibold">Generated Voice:</h2>
+      <audio controls class="mx-auto mt-2">
+        <source src="{{ audio_file }}" type="audio/wav">
+        Your browser does not support audio.
+      </audio>
+      <a href="/download" class="mt-4 inline-block text-blue-600 underline">Download Audio</a>
+    </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
