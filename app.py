@@ -9,9 +9,7 @@ OUTPUT_DIR = "outputs"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# load pretrained multi-speaker model
-MODEL_NAME = "tts_models/multilingual/multi-dataset/xtts_v2"
-tts = TTS(model_name=MODEL_NAME)
+
 
 @app.route("/clone", methods=["POST"])
 def clone():
